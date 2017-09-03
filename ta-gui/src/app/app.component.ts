@@ -17,6 +17,6 @@ export class AppComponent {
   gravar(a: Aluno): void {
     this.alunoService.gravar(a);
     this.alunos.push(a);
-    this.aluno = new Aluno();
+    this.aluno = new Aluno()
   }
 }
