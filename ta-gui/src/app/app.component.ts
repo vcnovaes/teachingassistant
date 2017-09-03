@@ -7,20 +7,23 @@ import { AlunoService } from './aluno.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   aluno: Aluno = new Aluno();
   alunoService = new AlunoService();
   alunos: Aluno[] = [];
+  cpfduplicado: boolean = false;
 
   gravar(a: Aluno): void {
     if (this.alunoService.gravar(a)) {
       this.alunos.push(a);
-      this.aluno = new Aluno()
+      this.aluno = new Aluno();
     } else {
-      this.aluno.cpf = "";
-      alert("Já existe um aluno com esse CPF");
+      this.cpfduplicado = true;
     }
+  }
+  onMove(): void {
+    this.cpfduplicado = false;
   }
 }
