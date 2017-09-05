@@ -16,15 +16,20 @@ export class AppComponent {
   alunos: Aluno[] = [];
   cpfduplicado: boolean = false;
 
-  gravar(a: Aluno): void {
-    if (this.alunoService.gravar(a)) {
+  criarAluno(a: Aluno): void {
+    if (this.alunoService.criar(a)) {
       this.alunos.push(a);
       this.aluno = new Aluno();
     } else {
       this.cpfduplicado = true;
     }
   }
+
   onMove(): void {
     this.cpfduplicado = false;
+  }
+
+  atualizarAluno(aluno: Aluno): void {
+    this.alunoService.atualizar(aluno);
   }
 }
