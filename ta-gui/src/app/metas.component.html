@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>e-mail</th>
+    <th>Requisitos</th>
+    <th>Gerência de Configuração</th>
+  </tr>
+  <tr *ngFor="let a of alunos">
+    <td>{{ a.nome }}</td>
+    <td>{{ a.cpf }}</td>
+    <td>{{ a.email }}</td>
+    <td class="meta">
+      <input
+        [ngModel]="a.metas.get('requisitos')"
+        (onModelChange)="a.metas.set('requisitos', $any($event))"
+        (change)="atualizarAluno(a)"
+      />
+    </td>
+    <td class="meta">
+      <input
+        [ngModel]="a.metas.get('gerDeConfiguracao')"
+        (onModelChange)="a.metas.set('gerDeConfiguracao', $any($event))"
+        (change)="atualizarAluno(a)"
+      />
+    </td>
+  </tr>
+</table>
