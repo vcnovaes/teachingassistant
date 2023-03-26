@@ -34,13 +34,15 @@
       <td>{{ a.email }}</td>
       <td>
         <input
-          [(ngModel)]="a.metas['requisitos']"
+          [ngModel]="a.metas.get('requisitos')"
+          (ngModelChange)="a.metas.set('requisitos', $event)"
           (change)="atualizarAluno(a)"
         />
       </td>
       <td>
         <input
-          [(ngModel)]="a.metas['gerDeConfiguracao']"
+          [ngModel]="a.metas.get('gerDeConfiguracao')"
+          (ngModelChange)="a.metas.set('gerDeConfiguracao', $event)"
           (change)="atualizarAluno(a)"
         />
       </td>
